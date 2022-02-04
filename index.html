@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="./resources/piano.png">
+	<title>JS Keys</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+		body { 
+		margin: 0;
+		padding: 0;
+		background: url(./resources/bg.png) no-repeat center center fixed;
+		background-size: cover;
+		overflow: hidden;
+		}
+
+		html, body {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100vh;
+		}
+
+		h1 {
+		position: absolute;
+		top: 42%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color: #ffffff;
+		font-family: 'Dancing Script', cursive;
+		font-size: 28px;
+		}
+
+		.pace {
+		pointer-events: none;
+		user-select: none;
+		z-index: 2000;
+		position: fixed;
+		margin: auto;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 400px;
+		border: 0px;
+		height: 1px;
+		overflow: hidden;
+		background: rgba(255, 255, 255, 0.26);
+		}
+
+		.pace .pace-progress {
+		box-sizing: border-box;
+		transform: translate3d(0, 0, 0);
+		max-width: 400px;
+		position: fixed;
+		z-index: 2000;
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 100%;
+		height: 100%;
+		width: 100%;
+		background: white;
+		}
+
+		.pace.pace-inactive {
+		display: none;
+		}
+
+		#preloader{
+		width:100%;
+		height:100vh;
+		background:#BD1F1C;
+		overflow:hidden;
+		position:fixed;
+		transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+		}
+
+		#preloader.p {
+		position: absolute;
+		top: 40%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color: #fff;
+		}
+
+		.card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 400px;
+		height: auto;
+		position: absolute;
+		top:-180px;
+		left: 50px;
+		transition: 0.3s;
+		margin:0;
+		text-align: center;
+		}
+
+		.card:hover {
+		top:0;
+		}
+
+		.container {
+		width: 150px;
+		font-family: 'Montserrat';
+		font-weight: 600;
+		font-size: 12px;
+		background: white;
+		padding: 2px 16px;
+		margin:0;
+		}
+
+		.container2{
+		font-family: 'Montserrat';
+		font-weight: 400;
+		font-size: 12px;
+		background: white;
+		padding: 2px 16px;
+		margin:0;
+		}
+
+		.container p,.container2 p {
+			margin: 3px 2px 3px 2px;
+		} 
+
+	</style>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="./pace.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery-bez@1.0.11/src/jquery.bez.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+</head>
+<body>
+	<div id="preloader">
+		<div class="p"><h1>Welcome to JS Keys !</h1></div>
+	</div>
+
+<div class="card">
+	<img src="./resources/notice.png" alt="instructions" style="width:100%">
+		<div class="container2">
+			<p>Use the keys indicated above to play, just like you're playing on a piano ! Have fun &#128516</p>
+		</div>
+		<div class="container">
+			<p><b>How to play JS Keys ?</b></p>
+		</div>
+</div> 
+<script>
+
+paceOptions = {
+ajax: true,
+document: true,
+eventLag: false
+};
+
+Pace.on('done', function() {
+$('.p').delay(500).animate({top: '30%', opacity: '0'}, 3000, $.bez([0.19,1,0.22,1]));
+
+
+$('#preloader').delay(1500).animate({top: '-100%'}, 2000, $.bez([0.19,1,0.22,1]));
+
+TweenMax.from(".title", 2, {
+    delay: 1.8,
+    y: 10,
+    opacity: 0,
+    ease: Expo.easeInOut
+    })
+});
+
+</script>
+
+<script type="module" src="./app.js"></script>
+
+</body>
+</html>
