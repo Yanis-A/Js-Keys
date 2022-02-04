@@ -1,8 +1,8 @@
-import * as THREE from './three.js-dev/build/three.module.js';
+import * as THREE from 'https://cdn.skypack.dev/three@0.137.5';
 
-//import Stats from './three.js-dev/examples/jsm/libs/stats.module.js';
+//import Stats from 'https://cdn.skypack.dev/three@0.137.5/examples/jsm/libs/stats.module.js';
 
-import {GLTFLoader} from './three.js-dev/examples/jsm/loaders/GLTFLoader.js';
+import {GLTFLoader} from 'https://cdn.skypack.dev/three@0.137.5/examples/jsm/loaders/GLTFLoader.js';
 
 let scene, camera, renderer, ambient, sLight, stats;
 
